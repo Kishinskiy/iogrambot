@@ -2,25 +2,17 @@ import asyncio
 import logging
 
 from aiogram import Bot, Dispatcher
-from aiogram.filters import CommandStart
-from aiogram.types import Message
 from config import BOT_TOKEN
+from app.handlers import router
 
 
 bot = Bot(token=BOT_TOKEN)
 dp = Dispatcher()
 
-@dp.message(CommandStart())
-async def cmd_start(message: Message):
-    await message.answer(
-        text=f"Hello World!, {message.from_user.full_name}"
-    )
-
-    await message.reply("Hello World! from reply")
-
 
 async def main():
     logging.basicConfig(level=logging.INFO)
+    dp.include_router(router)
     await dp.start_polling(bot)
 
 
