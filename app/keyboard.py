@@ -6,6 +6,12 @@ main = ReplyKeyboardMarkup(keyboard=[
     [KeyboardButton(text='Корзина'), KeyboardButton(text='Контакты')]
 ], resize_keyboard=True, input_field_placeholder="Выберите пункт меню.")
 
+second = InlineKeyboardMarkup( inline_keyboard=[
+    [InlineKeyboardButton(text='Каталог', callback_data='catalog')],
+    [InlineKeyboardButton(text='Корзина', callback_data='cart')],
+    [InlineKeyboardButton(text='Контакты', callback_data='contacts')],
+])
+
 settings = InlineKeyboardMarkup(inline_keyboard=[
     [InlineKeyboardButton(text='Youtube', url='https://youtube.com/@oleg_kishinsky')]
 ])
